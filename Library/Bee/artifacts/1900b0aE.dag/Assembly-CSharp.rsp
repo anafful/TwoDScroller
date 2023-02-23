@@ -393,6 +393,7 @@
 "Assets/Scripts/Player/PlayersDamage.cs"
 "Assets/ShopItemSO.cs"
 "Assets/SnowballBroadcasters.cs"
+"Assets/SnowballObjectPool.cs"
 "Assets/SnowballThrowAttack.cs"
 -langversion:9.0
 

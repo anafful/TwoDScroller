@@ -12,6 +12,9 @@ public class EnemySnowballAttack : MonoBehaviour
     float nextFire;
 
     public int hitDamage = 2;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,16 +28,7 @@ public class EnemySnowballAttack : MonoBehaviour
         
     }
 
-    private void OnEnable()
-    {
-        EnemyAI.OnSnowballAttack += ThrowSnowball;
-    }
-
-    private void OnDisable()
-    {
-        EnemyAI.OnSnowballAttack -= ThrowSnowball;
-
-    }
+   
 
     void ThrowSnowball()
     {
@@ -52,6 +46,7 @@ public class EnemySnowballAttack : MonoBehaviour
         if (damagable != null)
         {
             damagable.TakeDamage(hitDamage);
+           // gameObject.SetActive(false);
             Debug.Log("Heath reduced");
         }
     }

@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 10.0f;
-    public float jumpHeight = 10.0f;
+    public float jumpHeight;
     public float gravity = 20.0f;
 
     private CharacterController controller;
-   //private Rigidbody rb;
+    //private Rigidbody rb;
     private Animator anim;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         facingRight = true;
         anim = GetComponent<Animator>();
 
-        
+
     }
 
     void Update()
@@ -36,17 +36,17 @@ public class PlayerController : MonoBehaviour
         float verInput = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(horInput, 0, verInput);
-       
+
         moveDirection *= moveSpeed;
 
-       controller.Move(moveDirection * Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime);
 
 
         if (moveDirection != Vector3.zero)
         {
             anim.SetBool("Move", true);
 
-            
+
         }
         else
         {
@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        Jump();
 
-
-        if (horInput <0 && facingRight)
+        if (horInput < 0 && facingRight)
         {
             FlipPlayer();
         }
@@ -67,12 +67,19 @@ public class PlayerController : MonoBehaviour
             FlipPlayer();
         }
 
-        Jump();
-       
+        
+
+        //if (controller.isGrounded && Input.GetKeyDown(KeyCode.Space))
+        //{ 
+        //playerVelocity.y = jumpHeight * Time.deltaTime;
+
+        //}
+
 
     }
 
-    public void Jump()
+
+    public void Jump() //version1
     {
         playerVelocity.y += gravity * Time.deltaTime;
 
@@ -80,33 +87,52 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
-           if( Input.GetKeyDown(KeyCode.Space))
-                {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
 
                 playerVelocity.y = jumpHeight;
                 Debug.Log("Jump");
 
             }
 
-            
+
         }
+
+
+
+
+        //}
+
+        //public void Jump()
+        //{
+        //    if (controller.isGrounded)
+        //    {
+        //        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //        moveDirection *= moveSpeed;
+
+        //        if (Input.GetKeyDown(KeyCode.Space))
+        //        {
+        //            moveDirection.y = jumpHeight;
+        //            Debug.Log("jump");
+        //        }
+        //    }
+
+        //    moveDirection.y -= gravity * Time.deltaTime;
+        //    controller.Move(moveDirection * Time.deltaTime);
+        //}
 
        
 
 
     }
-
     void FlipPlayer()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
 
-       
+
     }
-
-  
 }
-
 
 
 

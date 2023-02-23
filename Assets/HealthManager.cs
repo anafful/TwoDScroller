@@ -16,6 +16,18 @@ public class HealthManager : MonoBehaviour
     #endregion
 
 
+    private void OnEnable()
+    {
+        PlayersDamage.OnSnowballAttack += UpdateHealthDisplay;
+    }
+
+    private void OnDisable()
+    {
+        PlayersDamage.OnSnowballAttack += UpdateHealthDisplay;
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

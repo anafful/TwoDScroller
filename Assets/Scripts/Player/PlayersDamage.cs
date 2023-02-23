@@ -7,6 +7,10 @@ public class PlayersDamage : MonoBehaviour, IDamagable
 
     public int health;
 
+
+    public static event HandleSnowballAtack OnSnowballAttack;
+    public delegate void HandleSnowballAtack();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class PlayersDamage : MonoBehaviour, IDamagable
     public void TakeDamage(int damageAmount)
     {
         Hit(damageAmount);
+        OnSnowballAttack?.Invoke();
     }
 
 }

@@ -25,8 +25,22 @@ public class SnowballThrowAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject ball = Instantiate(projectile, spawnPosition.position, transform.rotation);
-            ball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse );
+            //GameObject snowball = SnowballObjectPool.instance.GetPooledObjects();
+
+
+            //if (snowball != null)
+            //{
+            //    snowball.transform.position = spawnPosition.position;
+
+
+
+
+            //    snowball.SetActive(true);
+            //}
+            GameObject snowball = Instantiate(projectile, spawnPosition.position, transform.rotation);
+            snowball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
+           
+
 
             //transform.position += launchVelocity * Time.deltaTime * transform.forward;
             anim.SetBool("Throw", true);
@@ -46,6 +60,7 @@ public class SnowballThrowAttack : MonoBehaviour
         if(damagable != null)
         {
             damagable.TakeDamage(hitDamage);
+            gameObject.SetActive(false);
             Debug.Log("Heath reduced");
         }
     }
