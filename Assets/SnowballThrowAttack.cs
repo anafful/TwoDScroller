@@ -11,7 +11,8 @@ public class SnowballThrowAttack : MonoBehaviour
     public Transform spawnPosition;
     public Animator anim;
 
-    
+     public static event HandleSnowballAtack OnSnowballAttack;
+    public delegate void HandleSnowballAtack();
 
     public int hitDamage = 2;
     private void Start()
@@ -60,8 +61,16 @@ public class SnowballThrowAttack : MonoBehaviour
         if(damagable != null)
         {
             damagable.TakeDamage(hitDamage);
-            gameObject.SetActive(false);
+            OnSnowballAttack?.Invoke();
+
+            //gameObject.SetActive(false);
+            //Debug.Log("Heath reduced");
+        }
+
+        else
+        {
             Debug.Log("Heath reduced");
+
         }
     }
 

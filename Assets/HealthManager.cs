@@ -18,12 +18,12 @@ public class HealthManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayersDamage.OnSnowballAttack += UpdateHealthDisplay;
+       SnowballThrowAttack.OnSnowballAttack += UpdateHealthDisplay;
     }
 
     private void OnDisable()
     {
-        PlayersDamage.OnSnowballAttack += UpdateHealthDisplay;
+        SnowballThrowAttack.OnSnowballAttack -= UpdateHealthDisplay;
 
     }
 

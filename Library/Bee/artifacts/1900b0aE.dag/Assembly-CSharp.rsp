@@ -388,6 +388,7 @@
 "Assets/Scripts/Inventory/ItemDataSO.cs"
 "Assets/Scripts/Pickups/FishBroadcasters.cs"
 "Assets/Scripts/Pickups/PickAxBroadcasters.cs"
+"Assets/Scripts/Pickups/PickupFloats.cs"
 "Assets/Scripts/Pickups/SpecimensBroadcasters.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/PlayersDamage.cs"
@@ -395,6 +396,7 @@
 "Assets/SnowballBroadcasters.cs"
 "Assets/SnowballObjectPool.cs"
 "Assets/SnowballThrowAttack.cs"
+"Assets/Timer.cs"
 -langversion:9.0
 
 /deterministic

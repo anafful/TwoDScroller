@@ -40,7 +40,7 @@ public class InventorySlots : MonoBehaviour
         labelName.text = item.itemData.displayName;
         stackSizeText.text = item.stackSize.ToString();
 
-        Debug.Log("UI WORKING");
+        //Debug.Log("UI WORKING");
 
        
     }

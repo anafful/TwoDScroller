@@ -8,12 +8,17 @@ public class EnemySnowballAttack : MonoBehaviour
     public float launchVelocity = 10f;
     public Transform spawnPosition;
 
+    public static event HandleEnemySnowballAtack OnEnemySnowballAttack;
+    public delegate void HandleEnemySnowballAtack();
+
+
+
     //float fireRate;
     float nextFire;
 
     public int hitDamage = 2;
 
-   
+   //public static event OnEnemySnowballAtta
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +51,15 @@ public class EnemySnowballAttack : MonoBehaviour
         if (damagable != null)
         {
             damagable.TakeDamage(hitDamage);
-           // gameObject.SetActive(false);
+            OnEnemySnowballAttack?.Invoke();
             Debug.Log("Heath reduced");
+            // gameObject.SetActive(false);
+
         }
+        //else
+        //{
+        //    Debug.Log("Heath reduced");
+
+        //}
     }
 }

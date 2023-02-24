@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
 
             animator.SetBool("isAttacking", true);
             
-            Debug.Log("Attack");
+           // Debug.Log("Attack");
         }
         if (currentState == "AttackState")
 

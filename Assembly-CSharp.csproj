@@ -64,11 +64,14 @@
     <Compile Include="Assets\SnowballThrowAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayersDamage.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
+    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlots.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySnowballAttack.cs" />
     <Compile Include="Assets\DroppedItem.cs" />
     <Compile Include="Assets\Scripts\Pickups\FishBroadcasters.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemDataSO.cs" />
+    <Compile Include="Assets\Scripts\Pickups\PickupFloats.cs" />
+    <Compile Include="Assets\SnowballObjectPool.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryListener.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDamage.cs" />
     <Compile Include="Assets\ShopItemSO.cs" />
@@ -77,7 +80,6 @@
     <Compile Include="Assets\Scripts\Inventory\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\HealthManager.cs" />
-    <Compile Include="Assets\SnowballObjectPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
