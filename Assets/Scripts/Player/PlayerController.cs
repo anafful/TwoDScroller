@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 10.0f;
-    //public float jumpHeight;
-    public float gravity = 14.0f;
+
+    public float gravity = -9.81f;
 
     private CharacterController controller;
     //private Rigidbody rb;
@@ -27,10 +27,15 @@ public class PlayerController : MonoBehaviour
     //public bool isJumping = false;
     //private float jumpTimer = 0f;
 
- 
+
     //public float verticalVeloctiy;
     //public float jumpForce = 10f;
-    public float jumpSpeed = 8.0f;
+    public float jumpHeight = 8.0f;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    bool isGrounded;
 
     void Start()
     {
@@ -44,6 +49,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && playerVelocity.y < 0)
+        {
+            playerVelocity.y = -2f;
+        }
+
         float horInput = Input.GetAxis("Horizontal");
         float verInput = Input.GetAxis("Vertical");
 
@@ -52,6 +64,26 @@ public class PlayerController : MonoBehaviour
         moveDirection *= moveSpeed;
 
         controller.Move(moveDirection * Time.deltaTime);
+
+        
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            anim.SetBool("Jump", true);
+           // Debug.Log(anim.ToString());
+
+
+        }
+        else
+        {
+            anim.SetBool("Jump", false);
+        }
+
+        
+        playerVelocity.y += gravity * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
 
 
         if (moveDirection != Vector3.zero)
@@ -67,20 +99,70 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (horInput < 0 && facingRight)
         {
-            moveDirection.y = jumpSpeed;
-            anim.SetBool("Jump", true);
-        }
-        else
-        {
-            moveDirection.y -= gravity * Time.deltaTime;
-            anim.SetBool("Jump", false);
+            FlipPlayer();
         }
 
-        controller.Move(moveDirection * Time.deltaTime);
+        else if (horInput > 0 && !facingRight)
+        {
+            FlipPlayer();
+        }
 
+
+    }
+
+
+    void FlipPlayer()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
+
+
+    }
+
+}
+        
+
+
+
+
+
+
+
+  
+
+
+    
+
+
+
+
+
+
+
+//if(controller.isGrounded)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        moveDirection.y = jumpHeight;
+        //        anim.SetBool("Jump", true);
+        //    }
+        //    else
+        //    {
+        //        moveDirection.y -= gravity * Time.deltaTime;
+        //        anim.SetBool("Jump", false);
+        //    }
+
+        //    controller.Move(moveDirection * Time.deltaTime);
+
+        //}
+
+       
+
+        ////moveDirection.y += gravity * Time.deltaTime;
+        //controller.Move(moveDirection * Time.deltaTime);
+        ////transform.Rotate(playerVelocity * Time.deltaTime);
 
 
 
@@ -110,45 +192,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-        ////moveDirection.y += gravity * Time.deltaTime;
-        //controller.Move(moveDirection * Time.deltaTime);
-        ////transform.Rotate(playerVelocity * Time.deltaTime);
-
-
-        if (horInput < 0 && facingRight)
-        {
-            FlipPlayer();
-        }
-
-        else if (horInput > 0 && !facingRight)
-        {
-            FlipPlayer();
-        }
-
-
-
-    }
-
-
-void FlipPlayer()
-{
-    facingRight = !facingRight;
-    transform.Rotate(0f, 180f, 0f);
-
-
-}
-
-
-
-
-
-
-
-
-
-
       
-    }
+    
 
 
 
