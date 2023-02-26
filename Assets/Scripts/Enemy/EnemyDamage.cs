@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour,IDamagable
 {
-    public int health;
+    public int currentHealth;
+    int maxHealth = 100;
 
 
 
-  
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
+        currentHealth = maxHealth;
     }
 
-   
 
     public void Hit(int damageAmount)
     {
-        health -= damageAmount;
-        if (health <= 0)
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
         {
 
             Destroy(gameObject);
-            Debug.Log("Hit by payer");
             //die function
         }
     }
 
     public void TakeDamage(int damageAmount)
     {
-        Hit(damageAmount);
+        currentHealth -= damageAmount;
+        //OnSnowballAttack?.Invoke();
     }
-
 }

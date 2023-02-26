@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 10.0f;
-    public float jumpHeight;
-    public float gravity = -20.0f;
+    //public float jumpHeight;
+    public float gravity = 14.0f;
 
     private CharacterController controller;
     //private Rigidbody rb;
@@ -17,10 +17,20 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
 
     private Vector3 playerVelocity;
-   
-    public float rotationSpeed = 90f;
+
+    //public float rotationSpeed = 90f;
 
     bool facingRight;
+
+    //public float jumpForce = 10f;
+    //public float maxJumpTime = 0.5f;
+    //public bool isJumping = false;
+    //private float jumpTimer = 0f;
+
+ 
+    //public float verticalVeloctiy;
+    //public float jumpForce = 10f;
+    public float jumpSpeed = 8.0f;
 
     void Start()
     {
@@ -57,30 +67,53 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (controller.isGrounded)
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            moveDirection = transform.up * moveSpeed * verInput;
-            //playerVelocity = transform.up * rotationSpeed * horInput; 
-           
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
-                moveDirection.y = jumpHeight;
-                Debug.Log("Jump");
-
-            }
-
-           
-
-            
+            moveDirection.y = jumpSpeed;
+            anim.SetBool("Jump", true);
         }
-        moveDirection.y += gravity * Time.deltaTime;
+        else
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+            anim.SetBool("Jump", false);
+        }
+
         controller.Move(moveDirection * Time.deltaTime);
-        // transform.Rotate(playerVelocity * Time.deltaTime);
 
 
-        //Jump();
+
+
+
+        //if (controller.isGrounded)
+        //{
+        //    // moveDirection = transform.up * moveSpeed * verInput;
+        //    verticalVeloctiy = -gravity * Time.deltaTime;
+
+
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        verticalVeloctiy = jumpForce;
+        //        //moveDirection.y = jumpHeight;
+        //        Debug.Log("Jump");
+
+        //    }
+        //}
+
+        //else
+        //{
+        //    //verticalVeloctiy -= gravity * Time.deltaTime;
+        //    moveDirection.y -= gravity * Time.deltaTime;
+        //}
+
+
+
+
+
+        ////moveDirection.y += gravity * Time.deltaTime;
+        //controller.Move(moveDirection * Time.deltaTime);
+        ////transform.Rotate(playerVelocity * Time.deltaTime);
+
 
         if (horInput < 0 && facingRight)
         {
@@ -97,80 +130,54 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //public void Jump() //version1
-    //{
-    //    playerVelocity.y += gravity * Time.deltaTime;
-
-    //    controller.Move(playerVelocity);
-
-    //    if (controller.isGrounded)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Space))
-    //        {
-
-    //            playerVelocity.y = jumpHeight;
-    //            Debug.Log("Jump");
-
-    //        }
+void FlipPlayer()
+{
+    facingRight = !facingRight;
+    transform.Rotate(0f, 180f, 0f);
 
 
-    //    }
-
-    //public void Jump() //version1
-    //{
-        
-
-    //    if (controller.isGrounded)
-    //    {
-    //        playerVelocity = transform.up * rotationSpeed * horInput
-
-    //        if (Input.GetKeyDown(KeyCode.Space))
-    //        {
-
-    //            playerVelocity.y = jumpHeight;
-    //            Debug.Log("Jump");
-
-    //        }
-
-    //        playerVelocity.y += gravity * Time.deltaTime;
-
-    //        controller.Move(playerVelocity);
-    //    }
-
-
-        //}
-
-        //public void Jump()
-        //{
-        //    if (controller.isGrounded)
-        //    {
-        //        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //        moveDirection *= moveSpeed;
-
-        //        if (Input.GetKeyDown(KeyCode.Space))
-        //        {
-        //            moveDirection.y = jumpHeight;
-        //            Debug.Log("jump");
-        //        }
-        //    }
-
-        //    moveDirection.y -= gravity * Time.deltaTime;
-        //    controller.Move(moveDirection * Time.deltaTime);
-        //}
-
-
-
-
-    
-    void FlipPlayer()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
-
-
-    }
 }
 
 
 
 
+
+
+
+
+
+
+      
+    }
+
+
+
+
+
+// Detect jump input
+//if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+//{
+//    isJumping = true;
+//    jumpTimer = 0f;
+//    GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+//}
+
+//// Limit jump time
+//if (isJumping)
+//{
+//    jumpTimer += Time.deltaTime;
+//    if (jumpTimer >= maxJumpTime)
+//    {
+//        isJumping = false;
+//        Debug.Log("Jumping");
+//    }
+
+//private void OnCollisionEnter(Collision collision)
+//        {
+//            // Reset jump flag when landing
+//            if (collision.gameObject.CompareTag("Ground"))
+//            {
+//                isJumping = false;
+//            }
+
+//        }

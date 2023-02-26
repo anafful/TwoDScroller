@@ -60,9 +60,10 @@
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryManagerListener.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpecimensBroadcasters.cs" />
+    <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\Scripts\Pickups\PickAxBroadcasters.cs" />
     <Compile Include="Assets\SnowballThrowAttack.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayersDamage.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayersHealth.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlots.cs" />
@@ -73,13 +74,18 @@
     <Compile Include="Assets\Scripts\Pickups\PickupFloats.cs" />
     <Compile Include="Assets\SnowballObjectPool.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryListener.cs" />
+    <Compile Include="Assets\SnowballDamage.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDamage.cs" />
     <Compile Include="Assets\ShopItemSO.cs" />
     <Compile Include="Assets\Scripts\Inventory\Collector.cs" />
     <Compile Include="Assets\SnowballBroadcasters.cs" />
+    <Compile Include="Assets\DayAndNightCycle.cs" />
     <Compile Include="Assets\Scripts\Inventory\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\HealthManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Jump.cs" />
+    <Compile Include="Assets\IAddHealth.cs" />
+    <Compile Include="Assets\HealthPickup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

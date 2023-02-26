@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Timer;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class EnemyAI : MonoBehaviour
     //public int health;
 
     public Animator animator;
+
+    public static event HandleEnemySnowballAtack OnEnemySnowballAttack;
+    public delegate void HandleEnemySnowballAtack();
+
+
 
     void Start()
     {
@@ -46,14 +52,17 @@ public class EnemyAI : MonoBehaviour
         {
             if (distance < attackRange)
                 currentState = "AttackState";
+            
+            
         }
         else if (currentState == "AttackState")
         {
             //play the run animation
 
             animator.SetBool("isAttacking", true);
-            
-           // Debug.Log("Attack");
+            OnEnemySnowballAttack?.Invoke();
+
+            // Debug.Log("Attack");
         }
         if (currentState == "AttackState")
 

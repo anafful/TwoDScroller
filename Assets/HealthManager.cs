@@ -8,9 +8,9 @@ public class HealthManager : MonoBehaviour
 {
 
     #region Health
-    public float maxHealth = 10f;
+    public int maxHealth = 100;
     [HideInInspector]
-    public float currentHealth;
+    public int currentHealth;
     public TMP_Text healthText;
     public Slider healthSlider;
     #endregion
@@ -18,12 +18,15 @@ public class HealthManager : MonoBehaviour
 
     private void OnEnable()
     {
-       SnowballThrowAttack.OnSnowballAttack += UpdateHealthDisplay;
+        SnowballDamage.OnSnowballAttack += UpdateHealthDisplay;
+        HealthPickup.OnAddHealth += UpdateHealthDisplay;
+
     }
 
     private void OnDisable()
     {
-        SnowballThrowAttack.OnSnowballAttack -= UpdateHealthDisplay;
+        SnowballDamage.OnSnowballAttack -= UpdateHealthDisplay;
+        HealthPickup.OnAddHealth -= UpdateHealthDisplay;
 
     }
 

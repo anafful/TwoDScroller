@@ -11,10 +11,10 @@ public class SnowballThrowAttack : MonoBehaviour
     public Transform spawnPosition;
     public Animator anim;
 
-     public static event HandleSnowballAtack OnSnowballAttack;
-    public delegate void HandleSnowballAtack();
+    // public static event HandleSnowballAtack OnSnowballAttack;
+    //public delegate void HandleSnowballAtack();
 
-    public int hitDamage = 2;
+    //public int hitDamage = 2;
     private void Start()
     {
        // anim.SetBool("Throw", false);
@@ -26,27 +26,23 @@ public class SnowballThrowAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            //GameObject snowball = SnowballObjectPool.instance.GetPooledObjects();
+            GameObject snowball = SnowballObjectPool.instance.GetPooledObjects();
 
 
-            //if (snowball != null)
-            //{
-            //    snowball.transform.position = spawnPosition.position;
-
-
-
-
-            //    snowball.SetActive(true);
-            //}
-            GameObject snowball = Instantiate(projectile, spawnPosition.position, transform.rotation);
+            if (snowball != null)
+            {
+                snowball.transform.position = spawnPosition.position;
+                snowball.SetActive(true);
+            }
+            //GameObject snowball = Instantiate(projectile, spawnPosition.position, transform.rotation);
             snowball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
-           
+
 
 
             //transform.position += launchVelocity * Time.deltaTime * transform.forward;
             anim.SetBool("Throw", true);
-            //Debug.Log("Hit Enemy");
-           
+            Debug.Log("Throw Snowball");
+
         }
         else
         {
@@ -55,23 +51,23 @@ public class SnowballThrowAttack : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-       IDamagable damagable = other.GetComponent<IDamagable>();
-        if(damagable != null)
-        {
-            damagable.TakeDamage(hitDamage);
-            OnSnowballAttack?.Invoke();
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //   IDamagable damagable = other.GetComponent<IDamagable>();
+    //    if(damagable != null)
+    //    {
+    //        damagable.TakeDamage(hitDamage);
+    //        OnSnowballAttack?.Invoke();
 
-            //gameObject.SetActive(false);
-            //Debug.Log("Heath reduced");
-        }
+    //        //gameObject.SetActive(false);
+    //        //Debug.Log("Heath reduced");
+    //    }
 
-        else
-        {
-            Debug.Log("Heath reduced");
+    //    else
+    //    {
+    //        Debug.Log("Heath reduced");
 
-        }
+    //    }
     }
 
 
@@ -79,4 +75,3 @@ public class SnowballThrowAttack : MonoBehaviour
 
   
 
-}
