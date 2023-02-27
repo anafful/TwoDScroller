@@ -8,6 +8,7 @@ TagManager:
   - Music
   - Background
   - NoMask
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -39,8 +40,8 @@ TagManager:
   - Pushables
   - Stairs
   - Ground
-  - 
-  - 
+  - Enemy
+  - BreakRocks
   m_SortingLayers:
   - name: Background
     uniqueID: 2674791413

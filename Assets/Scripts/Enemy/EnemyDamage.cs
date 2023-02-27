@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour,IDamagable
 {
     public int currentHealth;
-    int maxHealth = 100;
+    int maxHealth = 4;
+    
 
 
-
+    //public GameObject destroyEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class EnemyDamage : MonoBehaviour,IDamagable
         {
 
             Destroy(gameObject);
+            Debug.Log("Taking Damage");
+            //Instantiate(destroyEffect,transform.position,Quaternion.identity );
             //die function
         }
     }

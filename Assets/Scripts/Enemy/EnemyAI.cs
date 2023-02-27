@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 {
 
 
-   
+   //EnemySnowballAttack attack;
     
     private string currentState = "IdleState";
    
@@ -61,6 +61,8 @@ public class EnemyAI : MonoBehaviour
 
             animator.SetBool("isAttacking", true);
             OnEnemySnowballAttack?.Invoke();
+            
+           
 
             // Debug.Log("Attack");
         }

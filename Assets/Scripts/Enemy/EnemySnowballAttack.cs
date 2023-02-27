@@ -7,9 +7,9 @@ public class EnemySnowballAttack : MonoBehaviour
     public GameObject projectile;
     public float launchVelocity = 10f;
     public Transform spawnPosition;
+    public float fireRate;
 
-   
-
+   // public static EnemySnowballAttack instance;
 
 
     //float fireRate;
@@ -17,7 +17,12 @@ public class EnemySnowballAttack : MonoBehaviour
 
     //public int hitDamage = 2;
 
-    
+
+    private void Awake()
+    {
+        //instance = this;    
+    }
+
 
     // Start is called before the first frame update
 
@@ -36,8 +41,8 @@ public class EnemySnowballAttack : MonoBehaviour
 
     void Start()
     {
-        //fireRate = 1f;
-        nextFire = Time.time;
+       fireRate = 1f;
+        nextFire = Time.deltaTime;
     }
 
 
@@ -48,8 +53,8 @@ public class EnemySnowballAttack : MonoBehaviour
         if(Time.time > nextFire)
         {
             GameObject ball = Instantiate(projectile, spawnPosition.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
-            nextFire = Time.time;
+            //ball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
+            nextFire = fireRate * Time.deltaTime;
         }
     }
 

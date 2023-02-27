@@ -11,13 +11,14 @@ public class SnowballThrowAttack : MonoBehaviour
     public Transform spawnPosition;
     public Animator anim;
 
-    // public static event HandleSnowballAtack OnSnowballAttack;
-    //public delegate void HandleSnowballAtack();
+    float throwForce;
+
+
 
     //public int hitDamage = 2;
     private void Start()
     {
-       // anim.SetBool("Throw", false);
+       
     }
 
     void Update()
@@ -32,10 +33,20 @@ public class SnowballThrowAttack : MonoBehaviour
             if (snowball != null)
             {
                 snowball.transform.position = spawnPosition.position;
+               // snowball.transform.Translate(Vector3.forward * throwForce);
+                
                 snowball.SetActive(true);
+
+                Physics.IgnoreCollision(snowball.GetComponent<Collider>(), GetComponent<Collider>());
+
+
+                snowball.transform.Translate(spawnPosition.forward * throwForce * Time.deltaTime, Space.World);
+
+
             }
             //GameObject snowball = Instantiate(projectile, spawnPosition.position, transform.rotation);
-            snowball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
+            // snowball.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * launchVelocity, ForceMode.Impulse);
+
 
 
 
@@ -51,23 +62,7 @@ public class SnowballThrowAttack : MonoBehaviour
         
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //   IDamagable damagable = other.GetComponent<IDamagable>();
-    //    if(damagable != null)
-    //    {
-    //        damagable.TakeDamage(hitDamage);
-    //        OnSnowballAttack?.Invoke();
-
-    //        //gameObject.SetActive(false);
-    //        //Debug.Log("Heath reduced");
-    //    }
-
-    //    else
-    //    {
-    //        Debug.Log("Heath reduced");
-
-    //    }
+    
     }
 
 
