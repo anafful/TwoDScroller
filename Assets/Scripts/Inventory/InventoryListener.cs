@@ -37,7 +37,6 @@ public class InventoryListener : MonoBehaviour
     public void add(ItemDataSO itemData)// add and removes the stack size
         {
 
-
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item)) //checking the item is thelist 
         {
             item.AddToStack(); // increase the stack list

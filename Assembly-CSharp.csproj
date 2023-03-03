@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryManagerListener.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpecimensBroadcasters.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\RestartLevel.cs" />
     <Compile Include="Assets\Scripts\Pickups\PickAxBroadcasters.cs" />
     <Compile Include="Assets\Scripts\SnowballThrowAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayersHealth.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\Player\Jump.cs" />
     <Compile Include="Assets\Scripts\AxHitAnim.cs" />
     <Compile Include="Assets\Scripts\ParallaxEffect.cs" />
+    <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlots.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySnowballAttack.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Assets\Scripts\Health\IAddHealth.cs" />
     <Compile Include="Assets\Scripts\Pickups\PickupFloats.cs" />
     <Compile Include="Assets\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\SnowballObjectPool.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryListener.cs" />
     <Compile Include="Assets\Scripts\SnowballDamage.cs" />
@@ -91,8 +94,7 @@
     <Compile Include="Assets\Scripts\Health\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Health\HealthManager.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\RestartLevel.cs" />
+    <Compile Include="Assets\Quit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

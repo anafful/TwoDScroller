@@ -11,7 +11,7 @@ public class FishBroadcasters : MonoBehaviour, ICollectible
 
     public delegate void HandleFishCollected(ItemDataSO itemData); // define delegate
 
-   
+   public AudioClip soundEffect;
 
     public ItemDataSO fishData;
    
@@ -20,8 +20,8 @@ public class FishBroadcasters : MonoBehaviour, ICollectible
     {
 
         OnFishCollected?.Invoke(fishData);
-       
-        //InventoryManagerListener.Instance.AddItem(fishData);
+        AudioManager.instance.PlayClip(soundEffect);
+        
         Destroy(gameObject);
         Debug.Log("YOU COLLECTED A FISH");
     }

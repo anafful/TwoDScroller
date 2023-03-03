@@ -11,25 +11,17 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
 
     private CharacterController controller;
-    //private Rigidbody rb;
+
     private Animator anim;
 
     private Vector3 moveDirection = Vector3.zero;
 
     private Vector3 playerVelocity;
 
-    //public float rotationSpeed = 90f;
 
     bool facingRight;
 
-    //public float jumpForce = 10f;
-    //public float maxJumpTime = 0.5f;
-    //public bool isJumping = false;
-    //private float jumpTimer = 0f;
-
-
-    //public float verticalVeloctiy;
-    //public float jumpForce = 10f;
+    
     public float jumpHeight = 8.0f;
 
     public Transform groundCheck;
@@ -37,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
-
+  
 
     private void OnEnable()
     {
@@ -86,6 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             anim.SetBool("Jump", true);
+           
            // Debug.Log(anim.ToString());
 
 
@@ -93,6 +86,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("Jump", false);
+            
         }
 
         
@@ -103,7 +97,7 @@ public class PlayerController : MonoBehaviour
         if (moveDirection != Vector3.zero)
         {
             anim.SetBool("Move", true);
-
+           
 
         }
         else

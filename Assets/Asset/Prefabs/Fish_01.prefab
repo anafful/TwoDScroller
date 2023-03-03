@@ -16,12 +16,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c6a7b8263d8f31c42ac62a52c1ba082c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.54
+      value: 8.22
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c6a7b8263d8f31c42ac62a52c1ba082c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -49.72
+      value: -56.78
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c6a7b8263d8f31c42ac62a52c1ba082c,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c6a7b8263d8f31c42ac62a52c1ba082c,
         type: 3}
       propertyPath: m_Name
-      value: Fish_01 (1)
+      value: Fish_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: -476929418302713645, guid: c6a7b8263d8f31c42ac62a52c1ba082c,
         type: 3}
@@ -102,6 +102,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1593080548999991811}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &615630707186747928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294194532557900554}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1210384, y: 2.1273832, z: 2.9239473}
+  m_Center: {x: 0.000000059604645, y: -0.04057139, z: -0.44145304}
 --- !u!114 &528078332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,17 +142,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76020688c7932843bbc53a5b1791e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
   fishData: {fileID: 11400000, guid: 1275d0572d230184395dba8f717f05da, type: 2}
---- !u!65 &615630707186747928
-BoxCollider:
+--- !u!114 &1764858911
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7294194532557900554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1210384, y: 2.1273832, z: 2.9239473}
-  m_Center: {x: 0.000000059604645, y: -0.04057139, z: -0.44145304}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76020688c7932843bbc53a5b1791e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: {fileID: 0}
+  fishData: {fileID: 11400000, guid: 1275d0572d230184395dba8f717f05da, type: 2}
+--- !u!114 &1764858912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294194532557900554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f58d7c369fe9041b7f46185fbc7f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 15
+  amplitude: 0.5
+  frequency: 1

@@ -7,7 +7,7 @@ public class PickAxBroadcasters : MonoBehaviour, ICollectible
     public static event HandlePickAxCollected OnPickAxCollected;  //instance of the delegat
 
     public delegate void HandlePickAxCollected(ItemDataSO itemData); // define delegate
-
+    public AudioClip soundEffect;
   
     public ItemDataSO PickAXData;
     //public ShopItemSO shopData;
@@ -17,6 +17,7 @@ public class PickAxBroadcasters : MonoBehaviour, ICollectible
     {
 
         OnPickAxCollected?.Invoke(PickAXData);
+        AudioManager.instance.PlayClip(soundEffect);
         //InventoryManagerListener.Instance.AddItem(fishData);
         Destroy(gameObject);
         Debug.Log("YOU COLLECTED PICKAX");

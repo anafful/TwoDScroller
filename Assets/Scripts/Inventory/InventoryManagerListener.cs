@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class InventoryManagerListener : MonoBehaviour
 {
     public GameObject slotPrefab;
     public static InventoryManagerListener Instance;
 
-    //public Transform itemContent;
-    
-
-    //public List<ItemDataSO> inventoryItems = new List<ItemDataSO>();
+  
     public List<InventorySlots> inventorySlots = new List<InventorySlots>(8);  
 
     private void Awake()
