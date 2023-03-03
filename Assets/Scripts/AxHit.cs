@@ -8,30 +8,30 @@ public class AxHit : MonoBehaviour
 
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    IDamagable damagable = other.GetComponent<IDamagable>();
-    //    if (damagable != null)
-    //    {
-    //        damagable.TakeDamage(hitDamage);
-    //        gameObject.SetActive(false);
-    //        //OnSnowballAttack?.Invoke();
-    //        Debug.Log("ax Damage");
-    //    }
-    //}
-
-
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        IDamagable damagable = other.collider.GetComponent<IDamagable>();
+        IDamagable damagable = other.GetComponent<IDamagable>();
         if (damagable != null)
         {
             damagable.TakeDamage(hitDamage);
             gameObject.SetActive(false);
-            Debug.Log("Ax Damage");
+            //OnSnowballAttack?.Invoke();
+            Debug.Log("ax Damage");
         }
-
-
     }
+
+
+
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    IDamagable damagable = other.collider.GetComponent<IDamagable>();
+    //    if (damagable != null)
+    //    {
+    //        damagable.TakeDamage(hitDamage);
+    //        gameObject.SetActive(false);
+    //        Debug.Log("Ax Damage");
+    //    }
+
+
+    //}
 }

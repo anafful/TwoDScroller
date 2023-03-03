@@ -60,13 +60,13 @@ public class Timer : MonoBehaviour
     }
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag ("Player"))
-    //    {
-    //        timerIsRunning = false;
-    //        Debug.Log("Made it home");
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            timerIsRunning = false;
+            Debug.Log("Made it home");
+        }
+    }
 }
 

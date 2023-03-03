@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197e32c42d02ad498b97fbdeeb4eecc, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  displayName: Fish
+  displayName: Cod
   icon: {fileID: 21300000, guid: 1c630a221f4d08b4b805b237696b5475, type: 3}

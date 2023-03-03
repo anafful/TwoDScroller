@@ -14,7 +14,7 @@ public class InventoryManagerListener : MonoBehaviour
     
 
     //public List<ItemDataSO> inventoryItems = new List<ItemDataSO>();
-    public List<InventorySlots> inventorySlots = new List<InventorySlots>(5);  
+    public List<InventorySlots> inventorySlots = new List<InventorySlots>(8);  
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class InventoryManagerListener : MonoBehaviour
             Destroy(childTransfrom.gameObject);
         }
 
-        inventorySlots = new List<InventorySlots>(5);
+        inventorySlots = new List<InventorySlots>(8);
     }
 
 

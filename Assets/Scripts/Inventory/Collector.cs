@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
+
+
   void OnTriggerEnter(Collider other)
     {
         ICollectible collectible = other.GetComponent<ICollectible>();

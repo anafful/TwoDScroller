@@ -11,21 +11,16 @@ public class FishBroadcasters : MonoBehaviour, ICollectible
 
     public delegate void HandleFishCollected(ItemDataSO itemData); // define delegate
 
-    //public delegate void HandleBuy(ShopItemSO shopData);
-    //public static event HandleBuy OnBuy;
-
-    //public delegate void HandleSell(ShopItemSO shopData);
-    //public static event HandleSell OnSell;
-
+   
 
     public ItemDataSO fishData;
-    //public ShopItemSO shopData;
-
+   
 
     public void Collect()
     {
 
         OnFishCollected?.Invoke(fishData);
+       
         //InventoryManagerListener.Instance.AddItem(fishData);
         Destroy(gameObject);
         Debug.Log("YOU COLLECTED A FISH");
