@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class Timer : MonoBehaviour
     public static event TimerEventHandler OnTimerTick;
 
 
-
+    public static event Action OnTimerEnds;
+    public static event Action OnSuccessWin;
 
     private void Start()
     {
@@ -42,7 +44,7 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
                 duration = 0;
                 timerIsRunning = false;
-                
+                OnTimerEnds?.Invoke();
                 // respawn to beginning or open menu page
             }
 
@@ -65,6 +67,7 @@ public class Timer : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             timerIsRunning = false;
+            OnSuccessWin?.Invoke();
             Debug.Log("Made it home");
         }
     }

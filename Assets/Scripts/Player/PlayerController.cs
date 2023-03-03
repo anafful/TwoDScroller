@@ -37,12 +37,26 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+
+
+    private void OnEnable()
+    {
+        Timer.OnTimerEnds += DisablePlayerMovement;
+    }
+
+
+    private void OnDisable()
+    {
+        Timer.OnTimerEnds -= DisablePlayerMovement;
+    }
+
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+       controller = GetComponent<CharacterController>();
         //rb = GetComponent<Rigidbody>();
         facingRight = true;
         anim = GetComponent<Animator>();
+       EnablePlayerMovement();
 
 
     }
@@ -121,6 +135,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void DisablePlayerMovement()
+    {
+        anim.enabled = false;
+        controller.enabled = false;
+
+    }
+
+
+    public void EnablePlayerMovement()
+    {
+        anim.enabled = true;
+        controller.enabled = true;
+
+    }
 }
         
 

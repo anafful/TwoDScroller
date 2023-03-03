@@ -376,6 +376,7 @@
 "Assets/DayAndNightCycle.cs"
 "Assets/DroppedItem.cs"
 "Assets/MovingPlatform.cs"
+"Assets/RestartLevel.cs"
 "Assets/Scripts/AxHit.cs"
 "Assets/Scripts/AxHitAnim.cs"
 "Assets/Scripts/Enemy/EnemyAI.cs"
@@ -408,6 +409,7 @@
 "Assets/Scripts/SnowballObjectPool.cs"
 "Assets/Scripts/SnowballThrowAttack.cs"
 "Assets/Scripts/Timer.cs"
+"Assets/Scripts/UIManager.cs"
 -langversion:9.0
 
 /deterministic
