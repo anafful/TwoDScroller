@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197e32c42d02ad498b97fbdeeb4eecc, type: 3}
   m_Name: SpecialFish
   m_EditorClassIdentifier: 
-  displayName: Special Fish
+  displayName: Koi
   icon: {fileID: 21300000, guid: af629c0ffae7fe741b2e6790345546ae, type: 3}

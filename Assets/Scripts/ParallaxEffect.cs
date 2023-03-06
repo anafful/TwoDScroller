@@ -14,7 +14,7 @@ public class ParallaxEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cam = GameObject.Find("CM vcam1");
+        Cam = GameObject.Find("Virtual Camera");
         startPos = transform.position.x;
     }
 

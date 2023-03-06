@@ -10,6 +10,16 @@ public class UIManager : MonoBehaviour
 
 
 
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
+
     private void OnEnable()
     {
         Timer.OnTimerEnds += EnableGameOverMenu;
@@ -38,6 +48,6 @@ public class UIManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 }
