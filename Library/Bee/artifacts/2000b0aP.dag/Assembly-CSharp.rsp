@@ -303,6 +303,7 @@
 -r:"Library/Bee/artifacts/2000b0aP.dag/Unity.VisualScripting.Flow.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aP.dag/UnityEngine.UI.ref.dll"
+"Assets/MovingPlatformsRL.cs"
 "Assets/Scripts/AudioManager.cs"
 "Assets/Scripts/AxHit.cs"
 "Assets/Scripts/AxHitAnim.cs"
