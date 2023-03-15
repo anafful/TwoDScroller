@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public GameObject Player;
+   // public GameObject Player;
 
-    private void OnTriggerEnter(Collider other)
+
+    public float speed = 2f;
+    public Vector3 startPosition;
+    public Vector3 endPosition;
+
+    void Start()
     {
-        Player.transform.parent = transform;
+        startPosition = transform.position;
+        endPosition = new Vector3(startPosition.x, startPosition.y + 5f, startPosition.z);
     }
-    private void OnTriggerExit(Collider other)
+
+
+    void Update()
     {
-        Player.transform.parent = null;
+        transform.position = Vector3.Lerp(startPosition, endPosition, Mathf.PingPong(Time.time * speed, 1));
     }
+
+    
 
 }

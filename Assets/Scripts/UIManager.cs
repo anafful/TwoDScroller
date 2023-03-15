@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject gameOverMenu;
+    //public GameObject gameOverMenu;
     public GameObject WinGame;
+    public GameObject RetryGameMenu;
+
 
 
 
@@ -23,31 +25,44 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         Timer.OnTimerEnds += EnableGameOverMenu;
-        Timer.OnSuccessWin += EnableWinMenu;
+        Timer.OnSuccessWin += WinNextLevelMenu;
+        
+        
     }
 
     private void OnDisable()
     {
         Timer.OnTimerEnds -= EnableGameOverMenu;
-        Timer.OnSuccessWin -= EnableWinMenu;
+        Timer.OnSuccessWin -= WinNextLevelMenu;
     }
     public void EnableGameOverMenu()
     {
-        gameOverMenu.SetActive(true);
+        RetryGameMenu.SetActive(true);
     }
 
-    public void EnableWinMenu()
+
+    public void WinNextLevelMenu()
     {
-        WinGame.SetActive(true);    
+        WinGame.SetActive(true);
+    }
+
+    public void TryAgainMenu()
+    {
+        RetryGameMenu.SetActive(true);    
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
