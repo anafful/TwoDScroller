@@ -92,7 +92,7 @@ Transform:
   m_Children:
   - {fileID: 2041676461953788281}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8364320997649307732
 GameObject:
@@ -807,7 +807,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 63c3d502f4856ea44906d14299bb66e8, type: 2}
+      objectReference: {fileID: 2100000, guid: 582864db686910c4ab9d5c205253b690, type: 2}
     - target: {fileID: 1659712334350799381, guid: 72fcee3806ee8cd4fad48dcd98afb351,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1060,54 +1060,3 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.4, z: 0}
---- !u!114 &1444538337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030399405738875754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df77cfea5561ac49bdead13a0570d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  attackRange: 5
-  animator: {fileID: 8277473373665920003}
---- !u!114 &1887074612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030399405738875754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edad89353d388464ba304f308ad0a88e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5843849131542585880, guid: 68b3e7e81b833b740ba6c3ebd3b7b20c,
-    type: 3}
-  launchVelocity: 10
-  spawnPosition: {fileID: 739319529}
-  fireRate: 2
---- !u!114 &1887074613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030399405738875754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c919fb905066c4e94cc4e4c6242a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
---- !u!95 &8277473373665920003 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 72fcee3806ee8cd4fad48dcd98afb351,
-    type: 3}
-  m_PrefabInstance: {fileID: 6426576342297444963}
-  m_PrefabAsset: {fileID: 0}
